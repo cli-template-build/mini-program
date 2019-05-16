@@ -1,0 +1,17 @@
+<config>
+{
+  "usingComponents": {
+    "circular": "circular.mina"
+  },
+  "component": true
+}
+</config>
+
+<template>
+  <view> Circular </view>
+</template>
+
+<script>
+Component({
+})
+</script>

@@ -1,0 +1,46 @@
+{
+  "name": "mini-program",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "yanlele",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf \"./dist/!(app.json)**\"",
+    "precommit": "lint-staged",
+    "prestart": "run-s clean",
+    "prebuild": "run-s clean",
+    "start": "webpack --watch --progress",
+    "build": "cross-env NODE_ENV=production webpack"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/runtime-corejs2": "^7.0.0",
+    "@tinajs/mina-entry-webpack-plugin": "^1.1.1",
+    "@tinajs/mina-loader": "^1.5.1",
+    "@tinajs/mina-runtime-webpack-plugin": "^1.2.1",
+    "@tinajs/wxml-loader": "0.3.1-fork.1",
+    "@tinajs/wxs-loader": "^1.2.1",
+    "babel-loader": "^8.0.4",
+    "cross-env": "^5.1.1",
+    "file-loader": "^1.1.11",
+    "json5": "^2.1.0",
+    "lint-staged": "^7.2.0",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.13.7",
+    "relative-file-loader": "^1.1.12",
+    "rimraf": "^2.6.2",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "url-loader": "^0.6.2",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.0"
+  }
+}

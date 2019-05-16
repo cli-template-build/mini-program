@@ -1,0 +1,17 @@
+<config>
+{
+  "usingComponents": {
+    "bar": "./bar.mina"
+  },
+  "component": true
+}
+</config>
+
+<template>
+  <view> foo <bar /> </view>
+</template>
+
+<script>
+Component({
+})
+</script>

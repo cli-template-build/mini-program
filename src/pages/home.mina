@@ -1,0 +1,46 @@
+<config>
+{
+  "usingComponents": {
+    "circular": "../components/circular.mina",
+    "foobar": "/components/foobar.mina",
+  }
+}
+</config>
+
+<style>
+@import '../common.wxss';
+
+text.blue {
+  color: #00f;
+}
+
+image {
+  width: 20px;
+  height: 20px;
+}
+</style>
+
+<template>
+  <view>
+    <text class="blue">{{msg}} </text>
+    <navigator url="/packages/a/pages/home">Go to a page in a subpackage</navigator>
+    <image style="height: 50rpx;width: 50rpx;"  src="../images/logo.png" />
+  </view>
+</template>
+
+<script>
+require('../utils/dependency.js')
+Page({
+  data: {
+    msg: '',
+  },
+
+  onLoad() {
+    console.log('parseInt: ', parseInt(4.2))
+    console.log('parseFloat: ', parseFloat(4.2));
+    this.setData({
+      msg: 'Hello from Home-Page!',
+    })
+  },
+})
+</script>

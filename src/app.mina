@@ -1,0 +1,41 @@
+<config>
+  {
+  "pages": [
+    "pages/home.mina",
+    "pages/message.mina"
+  ],
+    "subPackages": [
+      {
+        "root": "packages/a",
+        "pages": [
+          "pages/home.mina"
+        ]
+      }
+      ],
+        "tabBar": {
+        "list": [
+        {
+          "pagePath": "pages/home.mina",
+          "text": "Home",
+          "iconPath": "./images/tabs/home.png",
+          "selectedIconPath": "./images/tabs/home-active.png"
+        },
+        {
+          "pagePath": "pages/message.mina",
+          "text": "Message",
+          "iconPath": "./images/tabs/bell.png",
+          "selectedIconPath": "./images/tabs/bell-active.png"
+        }
+      ]
+    }
+  }
+</config>
+
+<script>
+  require('./utils/dependency.js')
+  App({
+    onLaunch() {
+      console.log({text: 'Hello from App!'})
+    },
+  })
+</script>
