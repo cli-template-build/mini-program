@@ -9,19 +9,11 @@ const loaders = {
   script: {
     loader: 'babel-loader',
     options: {
-      loaders: {
-        script: {
-          loader: 'babel-loader',
-          options: {
-            rootMode: 'upward',
-          },
-        },
-      },
       extensions: {
         template: '.ttml',
         style: '.ttss',
       },
-      publicPath: '/assets/images/',
+      publicPath: '/images/',
       enforceRelativePath: false,
     },
   },
@@ -63,7 +55,6 @@ module.exports = {
           },
         ],
       },
-
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
         use: {

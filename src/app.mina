@@ -1,9 +1,9 @@
 <config>
   {
-  "pages": [
-    "pages/home.mina",
-    "pages/message.mina"
-  ],
+    "pages": [
+      "pages/home.mina",
+      "pages/message.mina"
+    ],
     "subPackages": [
       {
         "root": "packages/a",
@@ -11,9 +11,9 @@
           "pages/home.mina"
         ]
       }
-      ],
-        "tabBar": {
-        "list": [
+    ],
+    "tabBar": {
+      "list": [
         {
           "pagePath": "pages/home.mina",
           "text": "Home",
@@ -31,4 +31,12 @@
   }
 </config>
 
-<script src="./app.ts"/>
+<script>
+  import './utils/dependency.js';
+
+  App({
+    onLaunch() {
+      console.log({text: 'Hello from App!'})
+    },
+  })
+</script>
