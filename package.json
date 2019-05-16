@@ -14,7 +14,9 @@
     "dev": "webpack --watch --progress",
     "build": "cross-env NODE_ENV=production webpack"
   },
-  "dependencies": {},
+  "dependencies": {
+    "iview-weapp": "^2.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
