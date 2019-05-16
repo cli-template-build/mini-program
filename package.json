@@ -11,8 +11,7 @@
     "precommit": "lint-staged",
     "prestart": "run-s clean",
     "prebuild": "run-s clean",
-    "dev": "npm run start",
-    "start": "webpack --watch --progress",
+    "dev": "webpack --watch --progress",
     "build": "cross-env NODE_ENV=production webpack"
   },
   "dependencies": {},
