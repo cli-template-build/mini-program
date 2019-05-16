@@ -17,14 +17,9 @@ const loaders = {
       enforceRelativePath: false,
     },
   },
-  // style: {
-  //   loader: 'postcss-loader',
-  //   options: {
-  //     config: {
-  //       path: resolve('./postcss.config.js'),
-  //     },
-  //   },
-  // },
+  style: {
+    loader: 'less-loader',
+  },
 };
 
 module.exports = {
@@ -54,6 +49,11 @@ module.exports = {
             options: loaders
           },
         ],
+      },
+      {
+        test: /\.(css|wxss)$/,
+        exclude: /node_modules/,
+        use: loaders.style,
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,

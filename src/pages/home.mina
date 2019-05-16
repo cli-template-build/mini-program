@@ -2,12 +2,12 @@
   {
     "usingComponents": {
       "circular": "../components/circular.mina",
-      "foobar": "/components/foobar.mina",
+      "foobar": "/components/foobar.mina"
     }
   }
 </config>
 
-<style>
+<style lang="less">
   @import '../common.wxss';
 
   text.blue {
@@ -15,15 +15,28 @@
   }
 
   image {
-    width: 20rpx;
-    height: 20rpx;
+    width: 200rpx;
+    height: 200rpx;
+  }
+
+  .container {
+    .block {
+      color: #b89aff;
+      font-size: 40rpx;
+    }
   }
 </style>
 
 <template>
   <view>
+    <view class="container">
+      <text class="block">
+        name
+      </text>
+    </view>
     <text class="blue">{{msg}}</text>
     <navigator url="/packages/a/pages/home">Go to a page in a subpackage</navigator>
+    <image src="/images/timg.jpeg"/>
   </view>
 </template>
 
