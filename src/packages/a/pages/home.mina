@@ -5,7 +5,7 @@
   </view>
 </template>
 
-<style lang="postcss">
+<style>
 @import '../../../common.wxss';
 </style>
 

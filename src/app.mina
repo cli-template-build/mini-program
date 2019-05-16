@@ -31,11 +31,4 @@
   }
 </config>
 
-<script>
-  require('./utils/dependency.js')
-  App({
-    onLaunch() {
-      console.log({text: 'Hello from App!'})
-    },
-  })
-</script>
+<script src="./app.ts"/>

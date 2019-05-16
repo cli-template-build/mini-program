@@ -15,6 +15,7 @@
     "build": "cross-env NODE_ENV=production webpack"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.3.3",
     "es6-promise": "^4.2.4"
   },
   "devDependencies": {
@@ -29,8 +30,12 @@
     "@tinajs/mina-runtime-webpack-plugin": "^1.2.1",
     "@tinajs/wxml-loader": "0.3.1-fork.1",
     "@tinajs/wxs-loader": "^1.2.1",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
     "babel-loader": "^8.0.4",
     "cross-env": "^5.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
     "file-loader": "^1.1.11",
     "json5": "^2.1.0",
     "lint-staged": "^7.2.0",
@@ -38,6 +43,7 @@
     "prettier": "^1.13.7",
     "relative-file-loader": "^1.1.12",
     "rimraf": "^2.6.2",
+    "typescript": "^3.4.5",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "url-loader": "^0.6.2",
     "webpack": "^4.23.1",

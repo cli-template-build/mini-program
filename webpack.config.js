@@ -25,14 +25,14 @@ const loaders = {
       enforceRelativePath: false,
     },
   },
-  style: {
-    loader: 'postcss-loader',
-    options: {
-      config: {
-        path: resolve('./postcss.config.js'),
-      },
-    },
-  },
+  // style: {
+  //   loader: 'postcss-loader',
+  //   options: {
+  //     config: {
+  //       path: resolve('./postcss.config.js'),
+  //     },
+  //   },
+  // },
 };
 
 module.exports = {
@@ -46,6 +46,13 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /.ts$/,
+        use: {
+          loader: "babel-loader"
+        },
+        exclude: /node_modules/,
+      },
       {
         test: /\.mina$/,
         exclude: /node_modules/,
@@ -101,6 +108,7 @@ module.exports = {
   },
   resolve: {
     symlinks: true,
+    extensions: ['.ts', '.js']
   },
   plugins: [
     new webpack.EnvironmentPlugin({
@@ -126,4 +134,4 @@ module.exports = {
     },
   },
   mode: isProduction ? 'production' : 'none',
-}
+};
