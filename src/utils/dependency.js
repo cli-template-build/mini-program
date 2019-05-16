@@ -1,4 +1,4 @@
-import 'regenerator-runtime';
+import 'regenerator-runtime/runtime';
 
 console.log('\u2665');
 console.log(`<${'='.repeat(100)}>`);
