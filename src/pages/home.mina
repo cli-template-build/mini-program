@@ -46,7 +46,7 @@
       <view slot="footer">尾部内容</view>
     </i-card>
 
-    <i-icon type="setup" size="28" color="#80848f" />
+    <i-icon type="setup" size="28" color="#80848f"/>
     <i-button type="primary">iview button</i-button>
   </view>
 </template>
