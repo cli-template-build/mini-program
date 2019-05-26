@@ -15,7 +15,8 @@
     "build": "cross-env NODE_ENV=production webpack"
   },
   "dependencies": {
-    "iview-weapp": "^2.0.0"
+    "iview-weapp": "^2.0.0",
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",

@@ -41,7 +41,7 @@
     <navigator url="/packages/a/pages/home">Go to a page in a subpackage</navigator>
     <image src="/images/timg.jpeg"/>
 
-    <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <i-card title="卡片标题" extra="额外内容">
       <view slot="content">内容不错</view>
       <view slot="footer">尾部内容</view>
     </i-card>
@@ -58,7 +58,7 @@
     },
 
     onLoad() {
-      console.log('parseInt: ', parseInt('4.2', 10))
+      console.log('parseInt: ', parseInt('4.2', 10));
       console.log('parseFloat: ', parseFloat(4.2));
       this.setData({
         msg: 'Hello from Home-Page!',
