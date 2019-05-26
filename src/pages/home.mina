@@ -42,17 +42,27 @@
     <image src="/images/timg.jpeg"/>
 
     <i-card title="卡片标题" extra="额外内容">
-      <view slot="content">内容不错</view>
+      <view slot="content">
+        这个是message pages 里面的内容 - count: {{count.count}}
+      </view>
       <view slot="footer">尾部内容</view>
     </i-card>
 
-    <i-icon type="setup" size="28" color="#80848f" />
+    <i-icon type="setup" size="28" color="#80848f"/>
     <i-button type="primary">iview button</i-button>
   </view>
 </template>
 
 <script>
-  Page({
+  import {connector} from '../models/store'
+  import PageWrapper from '../reduxWrapper/pageWrapper';
+
+  const mapStateToProps = (state) => ({
+    count: state.count,
+  });
+
+  PageWrapper({
+    mixins: [connector.page.connect(mapStateToProps)],
     data: {
       msg: '',
     },

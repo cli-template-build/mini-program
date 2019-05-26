@@ -1,7 +1,15 @@
+<config>
+  {
+    "usingComponents": {
+      "i-button": "~iview-weapp/dist/button/index"
+    }
+  }
+</config>
+
 <template>
   <view>
-    <include src="../template/greeting.wxml" />
-    <wxs src="../wxs/greeting.wxs" module="greeting" />
+    <include src="../template/greeting.wxml"/>
+    <wxs src="../wxs/greeting.wxs" module="greeting"/>
 
     <view>Roll: {{ random }}</view>
     <view>Now: {{ now }}</view>
@@ -10,10 +18,38 @@
       var MAX = 100;
       module.exports = Math.floor(Math.random() * MAX);
     </wxs>
-    <wxs src="../wxs/datetime/now.wxs" module="now" />
+    <wxs src="../wxs/datetime/now.wxs" module="now"/>
   </view>
+  <view>count: {{count.count}}</view>
+  <i-button bind:tap="add">click me +</i-button>
+  <i-button bind:tap="sub">click me -</i-button>
 </template>
 
 <script>
-Page({})
+  import PageWrapper from '../reduxWrapper/pageWrapper';
+  import {connector} from '../models/store';
+  import {updateCountAction} from "../models/count";
+
+  const mapStateToProps = (state) => ({
+    count: state.count,
+  });
+
+  PageWrapper({
+    mixins: [connector.page.connect(mapStateToProps)],
+
+    onLoad(query) {
+      console.log(`<${'='.repeat(100)}>`);
+      console.log(this);
+      console.log(this.data);
+      console.log(`<${'='.repeat(100)}>`);
+    },
+
+    add() {
+      this.dispatch(updateCountAction(++this.data.count.count));
+    },
+
+    sub() {
+      this.dispatch(updateCountAction(--this.data.count.count));
+    }
+  });
 </script>
