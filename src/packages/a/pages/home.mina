@@ -2,6 +2,7 @@
   <view>
     <view>This is subPage A</view>
     <text>this page should be lazy-loaded</text>
+    <view>count: {{count.count}}</view>
   </view>
 </template>
 
@@ -11,5 +12,14 @@
 
 
 <script>
-Page({})
+  import {connector} from '../../../models/store';
+  import PageWrapper from '../../../reduxWrapper/pageWrapper';
+
+  const mapStateToProps = (state) => ({
+    count: state.count,
+  });
+
+  PageWrapper({
+    mixins: [connector.page.connect(mapStateToProps)]
+  })
 </script>
