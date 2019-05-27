@@ -1,5 +1,5 @@
 import {createStore, combineReducers} from 'redux';
-import {createConnect} from '../reduxWrapper/connect';
+import {createConnect} from 'redux2miniapp';
 import count from './count';
 
 const reducers = combineReducers({

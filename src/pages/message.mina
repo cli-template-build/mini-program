@@ -27,7 +27,8 @@
 </template>
 
 <script>
-  import {PageWrapper} from '../reduxWrapper/wrapper';
+  import {PageWrapper} from 'redux2miniapp';
+
   import {connect} from '../models/store';
   import {updateCountAction, clearCountAction} from "../models/count";
 
