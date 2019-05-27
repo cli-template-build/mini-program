@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const MinaEntryPlugin = require('@tinajs/mina-entry-webpack-plugin');
 const MinaRuntimePlugin = require('@tinajs/mina-runtime-webpack-plugin');
+const LodashWebpackPlugin = require('lodash-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -13,6 +14,7 @@ const loaders = {
         template: '.ttml',
         style: '.ttss',
       },
+      plugin: ["lodash"],
       publicPath: '/images/',
       enforceRelativePath: false,
     },
@@ -112,6 +114,10 @@ module.exports = {
     new MinaRuntimePlugin({
       runtime: './runtime.js',
     }),
+    new LodashWebpackPlugin({
+      path: true,
+      flattening: true
+    })
   ],
   optimization: {
     splitChunks: {

@@ -21,5 +21,11 @@
 
   PageWrapper({
     mixins: [connect.page(mapStateToProps)],
+
+    onLoad(query) {
+      console.group('start');
+      console.log(query);
+      console.groupEnd();
+    }
   })
 </script>

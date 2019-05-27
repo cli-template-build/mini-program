@@ -28,6 +28,7 @@
 
 <script>
   import {PageWrapper} from 'redux2miniapp';
+  import {map} from 'lodash';
 
   import {connect} from '../models/store';
   import {updateCountAction, clearCountAction} from "../models/count";
@@ -40,7 +41,15 @@
     mixins: [connect.page(mapStateToProps)],
 
     onLoad(query) {
-      console.log(query);
+      map([4, 5], (item) => {
+        console.log(item * 2);
+      });
+    },
+
+    onShow(){
+      console.group('show');
+      console.log('show');
+      console.groupEnd();
     },
 
     add() {

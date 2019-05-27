@@ -38,7 +38,7 @@
       </text>
     </view>
     <text class="blue">{{msg}}</text>
-    <navigator url="/packages/a/pages/home">Go to a page in a subpackage</navigator>
+    <navigator url="/packages/a/pages/home?name=home">Go to a page in a subpackage</navigator>
     <image src="/images/timg.jpeg"/>
 
     <i-card title="卡片标题" extra="额外内容">
