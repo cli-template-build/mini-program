@@ -130,5 +130,5 @@ module.exports = {
       name: 'runtime.js',
     },
   },
-  mode: isProduction ? 'production' : 'none',
+  mode: 'none',
 };
