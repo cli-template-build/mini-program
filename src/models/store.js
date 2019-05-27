@@ -8,6 +8,4 @@ const reducers = combineReducers({
 
 const store = createStore(reducers);
 
-export const connector = createConnect(store);
-
-export default store;
+export const connect = createConnect(store);

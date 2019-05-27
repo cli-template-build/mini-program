@@ -23,25 +23,23 @@
   <view>count: {{count.count}}</view>
   <i-button bind:tap="add">click me +</i-button>
   <i-button bind:tap="sub">click me -</i-button>
+  <i-button bind:tap="clear">click me clear</i-button>
 </template>
 
 <script>
-  import PageWrapper from '../reduxWrapper/pageWrapper';
-  import {connector} from '../models/store';
-  import {updateCountAction} from "../models/count";
+  import {PageWrapper} from '../reduxWrapper/wrapper';
+  import {connect} from '../models/store';
+  import {updateCountAction, clearCountAction} from "../models/count";
 
   const mapStateToProps = (state) => ({
     count: state.count,
   });
 
   PageWrapper({
-    mixins: [connector.page.connect(mapStateToProps)],
+    mixins: [connect.page(mapStateToProps)],
 
     onLoad(query) {
-      console.log(`<${'='.repeat(100)}>`);
-      console.log(this);
-      console.log(this.data);
-      console.log(`<${'='.repeat(100)}>`);
+      console.log(query);
     },
 
     add() {
@@ -50,6 +48,10 @@
 
     sub() {
       this.dispatch(updateCountAction(--this.data.count.count));
+    },
+
+    clear() {
+      this.dispatch(clearCountAction());
     }
   });
 </script>

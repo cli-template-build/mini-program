@@ -49,20 +49,22 @@
     </i-card>
 
     <i-icon type="setup" size="28" color="#80848f"/>
-    <i-button type="primary">iview button</i-button>
+    <i-button type="primary" bind:tap="clear">iview button</i-button>
   </view>
 </template>
 
 <script>
-  import {connector} from '../models/store'
-  import PageWrapper from '../reduxWrapper/pageWrapper';
+  import {connect} from '../models/store'
+  import {PageWrapper} from '../reduxWrapper/wrapper';
+  import {clearCountAction} from '../models/count'
+
 
   const mapStateToProps = (state) => ({
     count: state.count,
   });
 
   PageWrapper({
-    mixins: [connector.page.connect(mapStateToProps)],
+    mixins: [connect.page(mapStateToProps)],
     data: {
       msg: '',
     },
@@ -74,5 +76,9 @@
         msg: 'Hello from Home-Page!',
       })
     },
+
+    clear() {
+      this.dispatch(clearCountAction());
+    }
   })
 </script>

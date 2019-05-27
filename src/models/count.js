@@ -35,4 +35,10 @@ export const updateCountAction = payload => {
   }
 };
 
+export const clearCountAction = () => {
+  return {
+    type: CLEAR_COUNT
+  }
+};
+
 export default CountReducers;

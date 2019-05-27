@@ -12,14 +12,14 @@
 
 
 <script>
-  import {connector} from '../../../models/store';
-  import PageWrapper from '../../../reduxWrapper/pageWrapper';
+  import {connect} from '../../../models/store';
+  import {PageWrapper} from '../../../reduxWrapper/wrapper';
 
   const mapStateToProps = (state) => ({
     count: state.count,
   });
 
   PageWrapper({
-    mixins: [connector.page.connect(mapStateToProps)]
+    mixins: [connect.page(mapStateToProps)],
   })
 </script>

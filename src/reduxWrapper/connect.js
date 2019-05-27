@@ -1,7 +1,5 @@
-import {Store, Unsubscribe, Dispatch} from 'redux';
-
-const createConnectFactory = store =>
-  function (mapStateToProps) {
+const connect = store =>
+  function (mapStateToProps = state => state) {
     let unsubscribe;
     const update = function () {
       const state = mapStateToProps(store.getState());
@@ -25,8 +23,8 @@ const createConnectFactory = store =>
   };
 
 const createPageConnectMixins = store => {
-  const connectFactory = createConnectFactory(store);
-  const connect = (mapStateToProps = state => state) => {
+  const connectFactory = connect(store);
+  return mapStateToProps => {
     const {install, uninstall, dispatch} = connectFactory(mapStateToProps);
     return {
       onLoad: install,
@@ -34,13 +32,12 @@ const createPageConnectMixins = store => {
       dispatch,
     }
   };
-  return {connect};
 };
 
 const createComponentConnectMixins = store => {
-  const connectFactory = createConnectFactory(store);
-  const connect = (mapstateToProps = state => state) => {
-    const {install, uninstall, dispatch} = connectFactory(mapstateToProps);
+  const connectFactory = connect(store);
+  return mapStateToProps => {
+    const {install, uninstall, dispatch} = connectFactory(mapStateToProps);
     return {
       attached: install,
       detached: uninstall,
@@ -49,21 +46,17 @@ const createComponentConnectMixins = store => {
       }
     }
   };
-  return {
-    connect,
-  };
 };
 
 const createAppConnectMixins = store => {
-  const connectFactory = createConnectFactory(store);
-  const connect = (mapstateToProps = state => state) => {
-    const {install, dispatch} = connectFactory(mapstateToProps);
+  const connectFactory = connect(store);
+  return mapStateToProps => {
+    const {install, dispatch} = connectFactory(mapStateToProps);
     return {
       onLaunch: install,
       dispatch,
     }
   };
-  return {connect};
 };
 
 export const createConnect = store => ({
