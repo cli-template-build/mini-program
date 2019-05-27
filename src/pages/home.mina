@@ -38,31 +38,47 @@
       </text>
     </view>
     <text class="blue">{{msg}}</text>
-    <navigator url="/packages/a/pages/home">Go to a page in a subpackage</navigator>
+    <navigator url="/packages/a/pages/home?name=home">Go to a page in a subpackage</navigator>
     <image src="/images/timg.jpeg"/>
 
-    <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-      <view slot="content">内容不错</view>
+    <i-card title="卡片标题" extra="额外内容">
+      <view slot="content">
+        这个是message pages 里面的内容 - count: {{count.count}}
+      </view>
       <view slot="footer">尾部内容</view>
     </i-card>
 
-    <i-icon type="setup" size="28" color="#80848f" />
-    <i-button type="primary">iview button</i-button>
+    <i-icon type="setup" size="28" color="#80848f"/>
+    <i-button type="primary" bind:tap="clear">iview button</i-button>
   </view>
 </template>
 
 <script>
-  Page({
+  import {connect} from '../models/store'
+  import {PageWrapper} from 'redux2miniapp';
+  import {clearCountAction} from '../models/count'
+
+
+  const mapStateToProps = (state) => ({
+    count: state.count,
+  });
+
+  PageWrapper({
+    mixins: [connect.page(mapStateToProps)],
     data: {
       msg: '',
     },
 
     onLoad() {
-      console.log('parseInt: ', parseInt('4.2', 10))
+      console.log('parseInt: ', parseInt('4.2', 10));
       console.log('parseFloat: ', parseFloat(4.2));
       this.setData({
         msg: 'Hello from Home-Page!',
       })
     },
+
+    clear() {
+      this.dispatch(clearCountAction());
+    }
   })
 </script>

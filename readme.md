@@ -12,7 +12,8 @@
 - [x] 外部组件加载
 - [ ] 添加eslint
 - [ ] 添加commitlint
-- [ ] 状态管理redux
+- [x] 添加lodash并做tree shaking
+- [x] 状态管理redux
 - [ ] 小程序请求封装
 - [ ] 全局loading组件统一
 - [ ] 国际化
